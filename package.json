@@ -1,7 +1,7 @@
 {
   "name": "@koheimukai/react-responsive",
-  "version": "1.0.0",
-  "description": "react hooks for designing responsive layout",
+  "version": "0.1.0",
+  "description": "react hooks for responsive design",
   "author": "koheimukai",
   "license": "MIT",
   "repository": "koheimukai/react-responsive",
