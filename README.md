@@ -13,16 +13,35 @@ npm install --save @koheimukai/react-responsive
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
-import { useMyHook } from '@koheimukai/react-responsive'
+import {
+  ResponsiveProvider,
+  useResponsive,
+} from "@koheimukai/react-responsive";
 
-const Example = () => {
-  const example = useMyHook()
+const Consumer = () => {
+  const { xs, sm, md, lg, xl } = useResponsive();
+
+  return xl ? (
+    <h1>Desktop with extra large screen size</h1>
+  ) : lg ? (
+    <h1>Desktop with large screen size</h1>
+  ) : md ? (
+    <h1>Tablet or Desktop with medium screen size</h1>
+  ) : sm ? (
+    <h1>Mobile or tablet with small screen size</h1>
+  ) : (
+    <h1>Mobile with extra small screen size</h1>
+  );
+};
+const App = () => {
   return (
-    <div>{example}</div>
-  )
-}
+    <ResponsiveProvider>
+      <Consumer />
+    </ResponsiveProvider>
+  );
+};
 ```
 
 ## License
