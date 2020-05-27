@@ -35,6 +35,7 @@ const Consumer = () => {
     <h1>Mobile with extra small screen size</h1>
   );
 };
+
 const App = () => {
   return (
     <ResponsiveProvider>
@@ -43,6 +44,42 @@ const App = () => {
   );
 };
 ```
+
+Default breakpoints (min-width):
+* extra small: 0px
+* small: 600px
+* medium: 960px
+* large: 1280px
+* extra large: 1920px
+
+useResponsive custom hook returns an object containing 5 boolean values: xs, sm, md, lg, and xl. 
+
+xs always returns true.
+
+You can use these boolean values to style HTML element.
+
+```jsx
+  <div data-sm={sm} />
+  <div data-md={md} data-lg={lg} />
+  <div data-xl={xl} />
+```
+
+```css
+div[data-md="true"] {
+  font-size: 24px;
+}
+
+div[data-lg="true"] {
+  font-size: 32px;
+}
+
+div[data-lg="true"][data-xl="false"] {
+  color: orange;
+}
+```
+
+You can specify custom breakpoints (e.g. `<ResponsiveProvider customBreakpoints={{md: 900}}>`)
+
 
 ## License
 
