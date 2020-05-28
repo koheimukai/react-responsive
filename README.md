@@ -79,15 +79,19 @@ function App() {
 
 ## Returned values
 
-useResponsive custom hook returns an object containing 5 boolean values: xs, sm, md, lg, and xl. **xs always returns true value**.
+useResponsive custom hook returns an object containing 5 boolean values: xs, sm, md, lg, and xl.
 
 You can use these boolean values to style HTML element.
+
+### JSX
 
 ```jsx
   <div data-sm={sm} />
   <div data-md={md} data-lg={lg} />
   <div data-xl={xl} />
 ```
+
+### CSS
 
 ```css
 div[data-md="true"] {
