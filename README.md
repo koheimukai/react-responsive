@@ -45,16 +45,41 @@ const App = () => {
 };
 ```
 
-Default breakpoints (min-width):
-* extra small: 0px
-* small: 600px
-* medium: 960px
-* large: 1280px
-* extra large: 1920px
+## Default breakpoints
 
-useResponsive custom hook returns an object containing 5 boolean values: xs, sm, md, lg, and xl. 
+Each breakpoint (a key) matches with a fixed screen width (a value):
 
-xs always returns true.
+- xs, extra-small: 0px
+- sm, small: 600px
+- md, medium: 960px
+- lg, large: 1280px
+- xl, extra-large: 1920px
+
+These breakpoint values are used to determine breakpoint ranges. A range starts from the breakpoint value inclusive, to the next breakpoint value exclusive:
+
+These values can be customized.
+
+## Custom breakpoints
+
+You define your project's breakpoints by passing in `customBreakpoints` props to `ResponsiveProvider` component.
+
+### Example
+
+```jsx
+const breakpoints = { md: 900, xl: 1400 };
+
+function App() {
+  return (
+    <ResponsiveProvider customBreakpoints={breakpoints}>
+      <Conosumer />
+    </ResposiveProvider>
+  );
+}
+```
+
+## Returned values
+
+useResponsive custom hook returns an object containing 5 boolean values: xs, sm, md, lg, and xl. **xs always returns true value**.
 
 You can use these boolean values to style HTML element.
 
@@ -77,9 +102,6 @@ div[data-lg="true"][data-xl="false"] {
   color: orange;
 }
 ```
-
-You can specify custom breakpoints (e.g. `<ResponsiveProvider customBreakpoints={{md: 900}}>`)
-
 
 ## License
 
